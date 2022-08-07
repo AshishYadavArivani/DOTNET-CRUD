@@ -1,0 +1,54 @@
+﻿@page
+@model dotnet_crud.Pages.Student.EditModel
+@{
+}
+
+@if(Model.errorMessage.Length > 0 )
+{
+   
+    <div class="alert alert-danger alert-dismissible fade-show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+    </div>
+
+  
+    
+}
+
+@if(Model.successMessage.Length > 0 )
+{
+ 
+         <div class="alert alert-success alert-dismissible fade-show" role="alert">
+        <strong>@Model.successMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+ 
+}
+<div class="row">
+<div class="card">
+    <div class="card-header">
+        <a href="/Student/Index" class="btn btn-sm btn-primary"> Students</a>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="row">
+                 <input type="hidden" name="id" class="form-control" placeholder="Name" value="@Model.studentInfo.id" />
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Name" value="@Model.studentInfo.name" />
+            </div>
+
+             <div class="row">
+                <label>Course</label>
+                <input type="text" name="course" class="form-control" placeholder="course" value="@Model.studentInfo.subject" />
+            </div>
+
+             <div class="row">
+                <br />
+                <input type="submit"  class="btn btn-sm btn-success form-control" value="Submit"/>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+</div>

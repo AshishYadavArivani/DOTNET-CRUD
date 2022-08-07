@@ -1,0 +1,61 @@
+﻿@page
+@model dotnet_crud.Pages.Student.IndexModel
+@{
+}
+
+@if(Model.errorMessage.Length > 0 )
+{
+   
+    <div class="alert alert-danger alert-dismissible fade-show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+    </div>
+
+  
+    
+}
+
+@if(Model.successMessage.Length > 0 )
+{
+ 
+         <div class="alert alert-success alert-dismissible fade-show" role="alert">
+        <strong>@Model.successMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+ 
+}
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <a class="btn btn-sm btn-primary" href="/Student/Create">Create</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                         <th>Edit</th>
+                         <th>Delete</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                  
+                    @foreach(var item in Model.listStudents)
+                    {
+                         <tr>
+                        <td>@item.id</td>
+                        <td>@item.name</td>
+                        <td>@item.subject</td>
+                        <td><a class="btn btn-sm btn-primary" href="/Student/Edit?id=@item.id"><i class="fa fa-edit"></i>Edit</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="/Student/Delete?id=@item.id">Delete</a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
